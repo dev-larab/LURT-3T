@@ -1,0 +1,49 @@
+name: Build iOS App (.ipa) for App Store
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-ios:
+    runs-on: macos-14
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Web Dist & Sync iOS
+        run: |
+          npm run build
+          npx cap sync ios
+
+      - name: Setup Xcode
+        uses: maxim-lobachev/xcode-install@v0.1
+        with:
+          xcode-version: 'latest-stable'
+
+      - name: Build iOS Archive (.xcarchive)
+        run: |
+          cd ios/App
+          xcodebuild -project App.xcodeproj \
+            -scheme App \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -archivePath build/App.xcarchive \
+            archive \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Upload iOS Archive Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: App-Xcode-Archive
+          path: ios/App/build/App.xcarchive

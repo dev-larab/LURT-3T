@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e1713" />
+      <stop offset="50%" stop-color="#070c09" />
+      <stop offset="100%" stop-color="#020403" />
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="50%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- iOS App Icon Squircle Background -->
+  <rect width="512" height="512" rx="115" fill="url(#bgGrad)" />
+  <rect width="512" height="512" rx="115" fill="url(#glow)" />
+  <rect x="8" y="8" width="496" height="496" rx="107" fill="none" stroke="#10b981" stroke-width="6" stroke-opacity="0.4" />
+
+  <!-- Shield Shape -->
+  <path d="M256 64 C350 64 416 112 416 192 C416 336 256 424 256 424 C256 424 96 336 96 192 C96 112 162 64 256 64 Z" 
+        fill="#08100c" stroke="url(#greenGrad)" stroke-width="10" stroke-linejoin="round" />
+
+  <!-- Rugby Ball in Center -->
+  <g transform="translate(256,236) rotate(-40)">
+    <ellipse cx="0" cy="0" rx="105" ry="62" fill="#10b981" />
+    <ellipse cx="0" cy="0" rx="98" ry="56" fill="#0b1712" />
+    
+    <!-- Central seam -->
+    <path d="M -98 0 L 98 0" stroke="#34d399" stroke-width="5" />
+    
+    <!-- Laces -->
+    <path d="M -30 -16 L -30 16 M -10 -16 L -10 16 M 10 -16 L 10 16 M 30 -16 L 30 16" 
+          stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" />
+    <path d="M -40 0 L 40 0" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
+    
+    <!-- White Grip Stripes on Edges -->
+    <path d="M -68 -42 C -52 -20 -52 20 -68 42" stroke="#34d399" stroke-width="5" fill="none" stroke-linecap="round" />
+    <path d="M 68 -42 C 52 -20 52 20 68 42" stroke="#34d399" stroke-width="5" fill="none" stroke-linecap="round" />
+  </g>
+
+  <!-- Typography: LA ÚNICA RT -->
+  <text x="256" y="142" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-weight="900" font-size="34" 
+        fill="#ffffff" text-anchor="middle" letter-spacing="3">LA ÚNICA RT</text>
+  <text x="256" y="380" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="22" 
+        fill="#34d399" text-anchor="middle" letter-spacing="4">TERCER TIEMPO</text>
+</svg>
